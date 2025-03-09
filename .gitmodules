@@ -1,0 +1,6 @@
+[submodule "owasp-be"]
+	path = owasp-be
+	url = https://github.com/lorinspan/owasp-be.git
+[submodule "owasp-fe"]
+	path = owasp-fe
+	url = https://github.com/lorinspan/owasp-fe.git
