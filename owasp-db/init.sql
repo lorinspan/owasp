@@ -51,3 +51,14 @@ INSERT INTO bac_users (username, password, role) VALUES
 ('user2', 'qwerty', 'USER'),
 ('admin1', 'adminpass', 'ADMIN'),
 ('admin2', 'root123', 'ADMIN');
+
+-- Creare tabel `cf_users`
+CREATE TABLE IF NOT EXISTS cf_users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,  -- Stocăm parola în format MD5 (nesigur)
+    email VARCHAR(255) NOT NULL
+);
+
+INSERT INTO cf_users (username, password, email) VALUES
+('lorinspan', 'fac0ca33fa0b047f25b1b8b894dee2d6', 'lorinspanx@gmail.com')

